@@ -1,3 +1,8 @@
+def containerName="insurence"
+def tag="latest"
+def docker_username="anjalisingh99"
+def gitURL="https://github.com/Anjali-Singh-99/star-agile-insurance-project.git"
+
 node {
     stage('checkout') {
         git changelog: false, credentialsId: 'GitHubCreds', poll: false, url: gitURL
