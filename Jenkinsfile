@@ -26,13 +26,12 @@ node {
             }
 	   
 	  }
-	node{'kubernetes_master'}{
+ }
+
+node{'kubernetes_master'}{
 	stage('deploy the container'){
 		sh "kubectl apply -f deployment.yml "
 		sh "kubectl apply -f service.yml "
 	  }
 	
 	}
-	  
-	  
-     }
