@@ -1,4 +1,4 @@
-def containerName="anjali-heath"
+def containerName="insurence"
 def tag="latest"
 def docker_username="anjalisingh99"
 def gitURL="https://github.com/Anjali-Singh-99/star-agile-insurance-project.git"
