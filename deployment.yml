@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: insurence
-        image: anjalisingh99/insurance:latest
+        image: anjalisingh99/insurence:latest
         ports:
         - containerPort: 8080
         resources:
