@@ -23,10 +23,12 @@ node {
             sh "docker tag $containerName:$tag $docker_username/$containerName:$tag"
             sh "docker push $docker_username/$containerName:$tag"
             echo "***********image push successfully done*********"
+            stash includes: '**/**.yml', name: 'deploy'
         }
     }
     stage('deploy the container') {
         node('kubernetes_master') {
+            unstash 'deploy'
             sh "kubectl apply -f deployment.yml"
             sh "kubectl apply -f service.yml"
         }
