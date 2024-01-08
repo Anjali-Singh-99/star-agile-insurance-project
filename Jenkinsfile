@@ -1,6 +1,6 @@
 def containerName="anjali-heath"
 def tag="latest"
-def dockerHubUser="anjalisingh99"
+def docker_username="anjalisingh99"
 def gitURL="https://github.com/Anjali-Singh-99/star-agile-insurance-project.git"
 
 node {
@@ -18,10 +18,10 @@ node {
 			 echo  "*****image build sucessfully completed******"
 	  }
 	  stage('push to docker hub'){
-	      withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'docker_pass', usernameVariable: 'docker_user')]) {
-                sh "docker login -u $docker_user -p $docker_pass"
-				sh "docker tag $containerName:$tag $docker_user/$containerName:$tag"
-				sh "docker push $docker_user/$containerName:$tag"
+	      withCredentials([usernamePassword(credentialsId: 'docker_user', passwordVariable: 'docker_pass', usernameVariable: 'docker_username')]) {
+                sh "docker login -u $docker_username -p $docker_pass"
+				sh "docker tag $containerName:$tag $docker_username/$containerName:$tag"
+				sh "docker push $docker_username/$containerName:$tag"
 				echo "***********image push sucessfully done*********"
             }
 	   
