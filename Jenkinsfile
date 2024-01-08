@@ -26,6 +26,7 @@ node {
             }
 	   
 	  }
+	node{'kubernetes_master'}
 	  stage('deploy the container'){
 	        
 	  }
