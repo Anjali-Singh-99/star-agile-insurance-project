@@ -26,11 +26,16 @@ node {
             stash includes: '**/**.yml', name: 'deploy'
         }
     }
-    stage('deploy the container') {
-        node('kubernetes_master') {
-            unstash 'deploy'
-            sh "kubectl apply -f deployment.yml"
-            sh "kubectl apply -f service.yml"
-        }
-    }
+   
 }
+node("kubernetes_master"){
+      stage('deploy the container'){
+          unstash 'deploy'
+          
+                sh "sudo kubectl get nodes"
+                sh "sudo kubectl apply -f deployment.yml"
+                sh "sudo kubectl apply -f service.yml"
+	         
+	    }
+	  
+      }
